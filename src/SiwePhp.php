@@ -35,6 +35,10 @@ class SiweMessage
             $this->fromParsedMessage($param);
         }
 
+        $expirationTime = $this->expirationTime;
+
+        $this->expirationTime = session()->get('expirationTime') ?? $expirationTime;
+
         $this->validateMessage();
     }
 
